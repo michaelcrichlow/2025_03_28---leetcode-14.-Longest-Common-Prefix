@@ -1,4 +1,5 @@
 # Oct 23, 2024
+# Solution accepted!
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
     #def longestCommonPrefix(strs: list[str]) -> str:
@@ -39,4 +40,19 @@ class Solution:
 
         #print("return_string: ", return_string)
         return return_string
+
+
+# 03.28.2025
+# Solution accepted!
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        smallest_word = sorted(strs, key=len)[0]
+        idx = len(smallest_word)
+        while idx > 0:
+            if all(val.startswith(smallest_word[:idx]) for val in strs):
+                break
+            else:
+                idx -= 1
+        
+        return smallest_word[:idx]
         
